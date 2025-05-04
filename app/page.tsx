@@ -13,8 +13,10 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { summarizePdf } from "./actions"
 
 // Pre-defined prompt
-const SUMMARY_PROMPT =
-  "Analyze this PDF document and provide a comprehensive summary. Include the main topics, key findings, and important details. Structure your response with clear sections and bullet points where appropriate."
+// const SUMMARY_PROMPT =
+  // "Analyze this PDF document and provide a comprehensive summary. Include the main topics, key findings, and important details. Structure your response with clear sections and bullet points where appropriate."
+const SUMMARY_PROMPT = 
+  "Analyze the provided multi-page document containing an assessment report. Specifically focus on the section titled \"Executive Summary\", locate the information based on the provided OCR content. Your task is to generate a concise summary that captures the key information presented *only* within this \"Executive Summary\" section. Format the summary using bullet points. Ensure the summary includes the following components: 1. An initial bullet point or two summarizing the overall assessment of the candidate as described in the first paragraph of the Executive Summary. 2. A distinct set of bullet points listing and briefly describing the \"STRENGTHS\" identified in the left-hand column of the table within the Executive Summary. 3. A distinct set of bullet points listing and briefly describing the \"WATCH-OUTS\" identified in the right-hand column of the table within the Executive Summary. Do not include information from other pages (like the Job Description or Glossary) in this summary. The final output should be a single list of bullet points structured to reflect the overall assessment, strengths, and watch-outs."
 
 export default function PDFUploader() {
   const [file, setFile] = useState<File | null>(null)
